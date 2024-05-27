@@ -10,4 +10,21 @@ pub mod discovering_rust {
 
         println!("{} + {} = {}", a, b, sum);
     }
+
+    pub fn arrays_ranges_and_looping() {
+        let values = [8, 30, 1, 3];
+        let mut sum = 0;
+
+        // range based for loop
+        // for i in 0..4 {
+        //     sum = add(sum, values[i]);
+        // }
+
+        // iterator based for loop
+        for i in values {
+            sum = add(sum, i);
+        }
+
+        println!("sum = {}", sum);
+    }
 }
