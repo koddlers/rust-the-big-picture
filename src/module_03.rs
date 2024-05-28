@@ -66,4 +66,31 @@ pub mod functional_flavored_oop {
 
         println!("sum = {}", sum);
     }
+
+    pub fn standard_iterators() {
+        // version - 1: using `fold()`
+        // let sum = (1..13)
+        //     .filter(|n| n % 2 == 0)
+        //     .fold(0, |tally, n| tally + n);
+
+        // to visualize what really happens in closure inside the `fold()`
+        // let sum = (1..13)
+        //     .filter(|n| n % 2 == 0)
+        //     .fold(0, |tally, n| {
+        //         println!("tally = {}, n = {}", tally, n);
+        //         tally + n
+        //     });
+
+        // version - 2: using `sum()::<T>`
+        // let sum = (1..13)
+        //     .filter(|n| n % 2 == 0)
+        //     .sum::<i32>();
+
+        // version - 3: using `sum()`
+        let sum: i32 = (1..13)
+            .filter(|n| n % 2 == 0)
+            .sum();
+
+        println!("sum = {}", sum);
+    }
 }

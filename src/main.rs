@@ -17,5 +17,6 @@ fn main() {
     // functional_flavored_oop::closures();
     // functional_flavored_oop::capturing_closures();
     // functional_flavored_oop::iterators();
-    functional_flavored_oop::iterator_chaining_and_lazy_execution();
+    // functional_flavored_oop::iterator_chaining_and_lazy_execution();
+    functional_flavored_oop::standard_iterators();
 }
