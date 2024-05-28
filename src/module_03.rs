@@ -107,14 +107,31 @@ pub mod functional_flavored_oop {
 
         // rather the `Self` shortname can be used which references the type,
         // `Accumulator` in this case
+        // Note: `new()` is an "Associated Function"
         fn new(sum: i32) -> Self {
             Self { sum }
+        }
+
+        // methods work with object instances and instances are referenced by the `self` keyword
+        fn get(self) -> i32 {
+            self.sum
+        }
+
+        // Note: `add()` is a "Method"
+        fn add(self, increment: i32) -> Self {
+            Self {
+                sum: self.sum + increment
+            }
         }
     }
 
     pub fn structure_definition_and_initialization() {
-        let acc = Accumulator::new(0);
+        let mut acc = Accumulator::new(0);
 
-        println!("acc = {:?}", acc);
+        for i in 3..10 {
+            acc = acc.add(i);
+        }
+
+        println!("acc = {}", acc.sum);
     }
 }
