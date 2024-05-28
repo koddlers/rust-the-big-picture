@@ -93,4 +93,28 @@ pub mod functional_flavored_oop {
 
         println!("sum = {}", sum);
     }
+
+    #[derive(Debug)]
+    struct Accumulator {
+        sum: i32,
+    }
+
+    impl Accumulator {
+        // implicitly mentions the type `Accumulator` which is not needed
+        // fn new(init: i32) -> Accumulator {
+        //     Accumulator { sum: init }
+        // }
+
+        // rather the `Self` shortname can be used which references the type,
+        // `Accumulator` in this case
+        fn new(sum: i32) -> Self {
+            Self { sum }
+        }
+    }
+
+    pub fn structure_definition_and_initialization() {
+        let acc = Accumulator::new(0);
+
+        println!("acc = {:?}", acc);
+    }
 }
