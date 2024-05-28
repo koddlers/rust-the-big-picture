@@ -42,4 +42,18 @@ pub mod discovering_rust {
 
         println!("sum = {}", sum);
     }
+
+    pub fn vectors() {
+        let mut  values = vec![8, 30];
+        let mut sum = 0;
+
+        values.push(1);
+        values.push(3);
+
+        for i in values {
+            sum = add(sum, i);
+        }
+
+        println!("sum = {}", sum);
+    }
 }
