@@ -51,4 +51,19 @@ pub mod functional_flavored_oop {
 
         println!("sum = {}", sum);
     }
+
+    pub fn iterator_chaining_and_lazy_execution() {
+        let mut sum = 0;
+        let add = |a, b| a + b;
+        let numbers = (1..13)
+            .inspect(|n| println!("Before filtering, n = {}", n))
+            .filter(|n| n % 2 == 0)
+            .inspect(|n| println!("After filtering, n = {}", n));
+
+        for i in numbers {
+            sum = add(sum, i);
+        }
+
+        println!("sum = {}", sum);
+    }
 }
