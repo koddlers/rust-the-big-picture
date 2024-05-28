@@ -39,4 +39,16 @@ pub mod functional_flavored_oop {
 
         println!("sum = {}", sum_range());
     }
+
+    pub fn iterators() {
+        let mut sum = 0;
+        let add = |a, b| a + b;
+        let numbers = 3..10;
+
+        for i in numbers.into_iter() {
+            sum = add(sum, i);
+        }
+
+        println!("sum = {}", sum);
+    }
 }

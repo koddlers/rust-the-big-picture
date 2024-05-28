@@ -15,5 +15,6 @@ fn main() {
 
     // Module 03 - Functional Flavored Object-Oriented Programming
     // functional_flavored_oop::closures();
-    functional_flavored_oop::capturing_closures();
+    // functional_flavored_oop::capturing_closures();
+    functional_flavored_oop::iterators();
 }
