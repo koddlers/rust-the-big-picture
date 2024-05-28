@@ -27,4 +27,19 @@ pub mod discovering_rust {
 
         println!("sum = {}", sum);
     }
+
+    pub fn array_slices_and_zero_cost_abstractions() {
+        let values = [8, 30, 1, 3];
+        let mut sum = 0;
+
+        for i in &values[0..2] {
+            sum = add(sum, *i);
+        }
+
+        for i in &values[2..4] {
+            sum = add(sum, *i);
+        }
+
+        println!("sum = {}", sum);
+    }
 }
