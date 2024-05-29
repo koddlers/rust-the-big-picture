@@ -9,14 +9,17 @@ pub mod ownership_and_the_borrow_checker {
             Self { sum }
         }
 
-        fn get(self) -> i32 {
+        // `&self` is an immutable borrow of the instance
+        fn get(&self) -> i32 {
             self.sum
         }
+        // `&mut self` is a mutable borrow of the instance
+        fn add(&mut self, increment: i32) {
+            self.sum += increment
+        }
 
-        fn add(self, increment: i32) -> Self {
-            Self {
-                sum: self.sum + increment
-            }
+        fn combine(acc1: Self, acc2: Self) -> Self {
+            Self::new(acc1.sum + acc2.sum)
         }
     }
 
@@ -24,11 +27,26 @@ pub mod ownership_and_the_borrow_checker {
         let mut acc = Accumulator::new(0);
 
         for i in 3..10 {
-            acc = acc.add(i);
-            // uncomment the following line to see the error
-            // println!("acc = {}", acc.get());
+            acc.add(i);
+            println!("acc = {}", acc.get());
         }
 
+        println!("acc = {}", acc.get());
+    }
+
+    pub fn ownership_borrowing_and_moving_values() {
+        let mut evens_acc = Accumulator::new(0);
+        let mut odds_acc = Accumulator::new(0);
+
+        for i in 3..10 {
+            if i % 2 == 0 {
+                evens_acc.add(i);
+            } else {
+                odds_acc.add(i);
+            }
+        }
+
+        let acc = Accumulator::combine(evens_acc, odds_acc);
         println!("acc = {}", acc.get());
     }
 }

@@ -24,5 +24,6 @@ fn main() {
     // functional_flavored_oop::structure_definition_and_initialization();
 
     // Module 04 - Ownership and the Borrow Checker
-    ownership_and_the_borrow_checker::memory_management_models();
+    // ownership_and_the_borrow_checker::memory_management_models();
+    ownership_and_the_borrow_checker::ownership_borrowing_and_moving_values();
 }
