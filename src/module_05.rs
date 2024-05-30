@@ -50,6 +50,7 @@ pub mod fearless_concurrency_v2 {
         sum
     }
 
+    // this version of concurrency fails to produce a correct result
     pub fn concurrent_function_implementation_first_attempt() {
         let a = 38;
         let b = 4;
@@ -156,6 +157,44 @@ pub mod fearless_concurrency_v4 {
     }
 
     pub fn concurrent_function_implementation() {
+        let a = 38;
+        let b = 4;
+        println!("{} + {} = {}", a, b, add(a, b));
+    }
+}
+
+
+pub mod fearless_concurrency_v5 {
+    use std::sync::mpsc;
+    use std::thread;
+
+    fn add(a: i32, b: i32) -> i32 {
+        let mut sum = a;
+        let (count, increment) = if (b > 0) { (b, 1) } else { (-b, -1) };
+        let mut handles = vec![];
+        let (tx, rx) = mpsc::channel();
+
+        for _ in 0..count {
+            let tx_for_thread = tx.clone();
+            handles.push(
+                thread::spawn(move || {
+                    tx_for_thread.send(increment).unwrap();
+                })
+            );
+        }
+
+        for handle in handles {
+            handle.join().unwrap();
+        }
+
+        for _ in 0..count {
+            sum += rx.recv().unwrap();
+        }
+
+        sum
+    }
+
+    pub fn concurrent_function_implementation_mpsc() {
         let a = 38;
         let b = 4;
         println!("{} + {} = {}", a, b, add(a, b));

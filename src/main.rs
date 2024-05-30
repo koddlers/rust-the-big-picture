@@ -12,6 +12,7 @@ use module_05::fearless_concurrency;
 use module_05::fearless_concurrency_v2;
 use module_05::fearless_concurrency_v3;
 use module_05::fearless_concurrency_v4;
+use module_05::fearless_concurrency_v5;
 
 fn main() {
     // Module 02 - Discovering Rust
@@ -36,5 +37,6 @@ fn main() {
     // fearless_concurrency::thread_lifecycle_and_a_concurrent_function_design();
     // fearless_concurrency_v2::concurrent_function_implementation_first_attempt();
     // fearless_concurrency_v3::concurrent_function_implementation();
-    fearless_concurrency_v4::concurrent_function_implementation();
+    // fearless_concurrency_v4::concurrent_function_implementation();
+    fearless_concurrency_v5::concurrent_function_implementation_mpsc();
 }
