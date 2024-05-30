@@ -10,6 +10,7 @@ use module_03::functional_flavored_oop;
 use module_04::ownership_and_the_borrow_checker;
 use module_05::fearless_concurrency;
 use module_05::fearless_concurrency_v2;
+use module_05::fearless_concurrency_v3;
 
 fn main() {
     // Module 02 - Discovering Rust
@@ -32,5 +33,6 @@ fn main() {
 
     // Module 05 - Fearless Concurrency
     // fearless_concurrency::thread_lifecycle_and_a_concurrent_function_design();
-    fearless_concurrency_v2::concurrent_function_implementation_first_attempt();
+    // fearless_concurrency_v2::concurrent_function_implementation_first_attempt();
+    fearless_concurrency_v3::concurrent_function_implementation();
 }
